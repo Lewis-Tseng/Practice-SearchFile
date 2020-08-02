@@ -18,12 +18,7 @@ public class SearchFile {
 
 		System.out.println("請輸入資料夾路徑");
 		String filepath = sc.next().trim();
-		
-//		Map<String, String> map = new HashMap<String, String>();
-//		map.put("4", filepath);
-//		String filegps = map.get("3");
-//		File dir = new File(filegps);
-		
+	
 		File dir = new File(filepath);
 		if (!dir.isDirectory()) {
 			System.out.println("這不是目錄");
@@ -54,7 +49,7 @@ public class SearchFile {
 			}
 		}
 
-		try { // append = fales
+		try {                                // append = fales
 			FileWriter fw = new FileWriter(fileListtext, false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
@@ -109,7 +104,7 @@ public class SearchFile {
 						pw1.println("======================");
 						pw1.flush();
 
-						System.out.println("第" + k + " 項 Bingo");
+						System.out.println("第 " + k + " 項 Bingo");
 						System.out.println(contents[i]);
 					}
 				}
@@ -137,7 +132,10 @@ public class SearchFile {
 		}
 
 	}
-
+//	Map<String, String> map = new HashMap<String, String>();
+//	map.put("4", filepath);
+//	String filegps = map.get("3");
+//	File dir = new File(filegps);
 //	public double prettynum(double d){
 //			
 //			String prtnum = String.valueOf(d);
