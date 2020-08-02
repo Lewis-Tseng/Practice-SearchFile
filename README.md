@@ -2,11 +2,11 @@
 ## <span id="1">📄1.專案簡述與 Source code 位置目錄</span>
 - 主要功能
 
- - 搜尋路徑資料夾檔案名稱並輸出紀錄文字檔。
+  - 搜尋路徑資料夾檔案名稱並輸出紀錄文字檔。
  
 - Source code 位置
  
- - [src/com](https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/src/com/util/searchfile/SearchFile.java)
+  - [SearchFile.java](https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/src/com/util/searchfile/SearchFile.java)
 
 ## <span id="2">📖2.操作流程簡介</span>
 - 滑鼠點擊SearchFile.exe檔案開啟程式
