@@ -19,8 +19,8 @@
 <div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/03.JPG" witth="800"/> </div>
 
 - 程式列出搜尋到的檔案並輸出記錄檔
-<div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/04.jpg" witth="800"/> </div>
+<div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/04.JPG" witth="800"/> </div>
 <div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/06.JPG" witth="800"/> </div>
 
 - 輸入0結束此資料夾搜尋並重新回到輸入資料夾路徑
-<div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/05.JPG" witth="800"/> </div>
+<div align="center"> <img src="https://github.com/Lewis-Tseng/Practice-SearchFile/blob/master/github_SearchFile_images/05.jpg" witth="800"/> </div>
