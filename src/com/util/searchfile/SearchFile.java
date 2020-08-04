@@ -34,7 +34,7 @@ public class SearchFile {
 			}
 		}
 
-		try { // append = fales
+		try {                                 // append = fales
 			FileWriter fw1 = new FileWriter(fileListtext, false);
 			BufferedWriter bw1 = new BufferedWriter(fw1);
 			PrintWriter pw1 = new PrintWriter(bw1);
@@ -88,6 +88,7 @@ public class SearchFile {
 						// 取得現在時間
 						Calendar cal = Calendar.getInstance();
 						java.util.Date du = cal.getTime();
+						pw2.println();
 						pw2.println("第" + l + "次搜尋時間 ： " + du);
 						pw2.println();
 						pw2.println();
@@ -128,16 +129,16 @@ public class SearchFile {
 				pw1.println("總共" + contents.length + "個檔案");
 				pw1.flush();
 
-				sc.close();
-				pw1.close();
-				bw1.close();
-				fw1.close();
-				pw2.close();
-				bw2.close();
-				fw2.close();
-
 			}
-
+			
+			sc.close();
+			pw1.close();
+			bw1.close();
+			fw1.close();
+			pw2.close();
+			bw2.close();
+			fw2.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
 		}
