@@ -1,14 +1,25 @@
 package com.util.searchfile;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class SearchFile {
 
@@ -34,12 +45,14 @@ public class SearchFile {
 			}
 		}
 
-		try {                                 // append = fales
-			FileWriter fw1 = new FileWriter(fileListtext, false);
+		try { // 用 OutputStreamWriter可設定輸出時的編碼 // 設定是否要串接 append = fales
+			OutputStreamWriter fw1 = new OutputStreamWriter(new FileOutputStream(fileListtext, false), "UTF-8");
+//			FileWriter fw1 = new FileWriter(fileListtext, false);
 			BufferedWriter bw1 = new BufferedWriter(fw1);
 			PrintWriter pw1 = new PrintWriter(bw1);
 
-			FileWriter fw2 = new FileWriter(searchLogtext, true);
+			OutputStreamWriter fw2 = new OutputStreamWriter(new FileOutputStream(searchLogtext, true), "UTF-8");
+//			FileWriter fw2 = new FileWriter(searchLogtext, true);
 			BufferedWriter bw2 = new BufferedWriter(fw2);
 			PrintWriter pw2 = new PrintWriter(bw2);
 
@@ -47,12 +60,19 @@ public class SearchFile {
 			out: while (switch_a) {
 				System.out.println("請輸入資料夾路徑(輸入0為結束)");
 				String filepath = sc.next().trim();
-
+//				InputStreamReader isr = new InputStreamReader(System.in);
+//				BufferedReader br = new BufferedReader(isr);
+//				String filepath = br.readLine();
+						
+				filepath = new String(filepath.getBytes(), Charset.defaultCharset());
+				
 				if ("0".equals(filepath)) {
 					System.out.println("結束程式");
 					break;
 				}
+
 				File dir = new File(filepath);
+				System.out.println(dir.getPath());
 				if (!dir.isDirectory()) {
 					System.out.println("這不是目錄");
 					System.out.println();
@@ -118,6 +138,9 @@ public class SearchFile {
 							System.out.println(contents[i]);
 						}
 					}
+					pw1.println("總共" + contents.length + "個檔案");
+					pw1.flush();
+
 					if (k == 0 && switch_b == true) {
 						System.out.println("沒有此檔案");
 						pw2.println("沒有此檔案");
@@ -125,12 +148,8 @@ public class SearchFile {
 					}
 					k = 0;
 				}
-
-				pw1.println("總共" + contents.length + "個檔案");
-				pw1.flush();
-
 			}
-			
+
 			sc.close();
 			pw1.close();
 			bw1.close();
@@ -138,11 +157,30 @@ public class SearchFile {
 			pw2.close();
 			bw2.close();
 			fw2.close();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
 		}
 	}
+	
+
+	// 其他轉換路徑亂碼問題的參考資料
+//	BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filepath), "UTF-8")); 
+//	String data;
+//    while ((data = reader.readLine()) != null)
+//        System.out.println(data);
+
+	// 轉換編碼成UTF-8
+//	filepath = new String(filepath.getBytes("Unicode"), Charset.defaultCharset());
+//	filepath = new String(filepath.getBytes("GBK"), "UTF-8");
+
+//	try {
+//		String filepath_format = SearchFile.class.getResource(filepath).toURI().getPath();
+//		filepath_format_done = filepath_format;
+//	} catch (URISyntaxException e) {
+//		e.printStackTrace();
+//	}
+
 //	Map<String, String> map = new HashMap<String, String>();
 //	map.put("4", filepath);
 //	String filegps = map.get("3");
